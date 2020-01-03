@@ -1,27 +1,26 @@
 import Menubar from '../layouts/menubar'
+import Addtransfer from '../component/Addtransfer'
+import DetailTransaction from '../component/DetailTransaction'
+import styled from 'styled-components';
+import { useState } from 'react'
+
 const Transfer = () => {
+
+    const [address, setAddress] = useState([]);
+
+    const handleCreate = (data) => {
+        address.push(data);
+        let temp = address
+        setAddress([...temp]);
+    }
+
     return (
         <div>
-            <Menubar />
-            <h1>Transfer</h1>
-            <div>
-                <label>
-                    <p>From Address</p>
-                    <input type='text' />
-                </label>
-                <label>
-                    <p>To Address</p>
-                    <input type='text' />
-                </label>
-                <label>
-                    <p>Amount</p>
-                    <input type='number' />
-                </label>
-                <div>
-                    <button >Transfer</button>
-                </div>
-            </div>
-
+                <Menubar/>
+                <Addtransfer onCreate={handleCreate}/>
+                {address.map((item) => (
+                <DetailTransaction data={item} />
+            ))}
         </div>
     )
 }

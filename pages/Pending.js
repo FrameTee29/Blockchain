@@ -1,5 +1,6 @@
 import Menubar from '../layouts/menubar'
-const Pending = () =>{
+import { useState } from 'react'
+const Pending = props =>{
     return(
         <div>
             <Menubar></Menubar>
