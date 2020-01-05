@@ -1,6 +1,6 @@
 const SHA256=require('crypto-js/sha256');
 
-class Transaction{
+export class Transaction{
     constructor(fromAddress,toAddress,amount){
         this.fromAddress=fromAddress;
         this.toAddress=toAddress;
@@ -9,7 +9,7 @@ class Transaction{
     }
 }
 
-class Block{
+export class Block{
     constructor(timestamp,transactions,previousHash=''){
         this.timestamp=timestamp;
         this.transactions=transactions;
@@ -37,7 +37,7 @@ class Block{
     }
 }
 
-class Blockchain{
+export class Blockchain{
     constructor(){
         this.chain=[this.createGenesisBlock()];// เป็นเหมือน โซ่ ที่เอาใว้ต่อ Block
         this.difficulty=2;

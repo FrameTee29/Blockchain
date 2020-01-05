@@ -18,9 +18,7 @@ const Transfer = () => {
         <div>
                 <Menubar/>
                 <Addtransfer onCreate={handleCreate}/>
-                {address.map((item) => (
-                <DetailTransaction data={item} />
-            ))}
+                {address.map((item) => (<DetailTransaction data={item} />))}
         </div>
     )
 }
